@@ -1,10 +1,15 @@
-from django.shortcuts import HttpResponse, redirect
+from django.shortcuts import HttpResponse, redirect, render
 
 # Create your views here.
-def root(request):
-  return HttpResponse('This is the root')
-
 def index(request):
+    context = {
+      "name": "Noelle",
+      "favorite_color": "turquoise",
+      "pets": ["Bruce", "Fitz", "Georgie"]
+    }
+    return render(request, "index.html", context)
+
+def index_blog(request):
   return HttpResponse("placeholder to later display a list of all blogs")
 
 def new(request):
